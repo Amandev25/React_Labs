@@ -9,14 +9,55 @@ import ProductList from './components/ProductList.jsx'
 import WelcomeMessage from './components/WelcomeMessage.jsx'
 import Product from './components/Product.jsx'
 import Test from './test.jsx'
+import Weather from './components/Weather.jsx'
+import UserStatus from './components/UserStatus.jsx'
+import Greeting from './components/Greeting.jsx'
+
+const ValidPassword =() => <h1>Valid Password</h1>
+const InvalidPassword =() => <h1>Invalid Password</h1>
+
+const Password = ({ isValid }) => {
+    return isValid ? <ValidPassword /> : <InvalidPassword /> 
+}
+
+const Cart = () => {
+
+  const items = ["wireless Earbuds" , "Bluetooth Speaker" , "Smartphone"]
+
+  return (
+    <div>
+      <h2>Cart 🛒</h2>
+      {items.length > 0 && <p>You have {items.length} items in your cart.</p>}
+   
+    <ul>
+      <h3>Products</h3>
+      {items.map((item ) => (
+        <li key = {Math.random()}>
+          {item}
+        </li>
+      ))}
+    </ul>
+   
+   
+   
+   
+    </div>
+      
+  )
+}
+
+
 function App() {
   
 
   return (
-<div>
-     <Person name="John Doe" age={30} />
-     <Product name="Laptop" price={999.99} />
-</div>
+<section>
+  <Password isValid={true} /> ,
+  <Weather />
+  <Cart />
+  <UserStatus />
+  <Greeting timeofday={"morning"} />
+</section>
   )
 }
 
