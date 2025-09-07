@@ -12,7 +12,18 @@ import Test from './test.jsx'
 import Weather from './components/Weather.jsx'
 import UserStatus from './components/UserStatus.jsx'
 import Greeting from './components/Greeting.jsx'
-
+import StyleCard from './StyleCard.jsx'
+import ProfileCard  from '../ProfileCard.jsx'
+import IconComponent from './components/IconComponent.jsx'
+import EventDemo from './components/EventDemo.jsx'
+import Counter from './Counter.jsx'
+import TodoList from './TodoList.jsx'
+import Profile from './profile.jsx'
+import ShoppingList from './ShoppingList.jsx'
+import Other from './other.jsx'
+import MyPortal from './components/MyPortal.jsx'
+import Toast from './components/Toast.jsx'
+import {useState} from 'react';
 const ValidPassword =() => <h1>Valid Password</h1>
 const InvalidPassword =() => <h1>Invalid Password</h1>
 
@@ -48,15 +59,40 @@ const Cart = () => {
 
 
 function App() {
-  
+   const [isToastVisible, setIsToastVisible] = useState(false);
 
   return (
 <section>
-  <Password isValid={true} /> ,
+  {/* <Password isValid={true} /> ,
   <Weather />
   <Cart />
   <UserStatus />
   <Greeting timeofday={"morning"} />
+  {/* <StyleCard /> */}
+  {/* <ProfileCard />
+
+  <IconComponent  />
+  <EventDemo  /> */}
+  
+
+<MyPortal>
+  <h2> Hello! I'm Being rendered In the portal-root div!!</h2>
+</MyPortal>
+     <h1>Toast Notification Example</h1>
+      <p>Click the button below to show a message.</p>
+
+      {/* Disable the button while the toast is visible to prevent spamming */}
+      <button onClick={() => setIsToastVisible(true)} disabled={isToastVisible}>
+        Show Toast
+      </button>
+
+      {/* We use conditional rendering to show the Toast component */}
+      {isToastVisible && (
+        <Toast onClose={() => setIsToastVisible(false)}>
+          Success! Your action was completed. ✅
+        </Toast>
+      )}
+  
 </section>
   )
 }
