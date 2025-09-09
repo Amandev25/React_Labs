@@ -29,6 +29,9 @@ import ComponentA from './Context/ComponentA.jsx'
 import ComponentC from './Context/ComponentC.jsx'
 import ComponentB from './Context/ComponentB.jsx'
 import {ComponentsContext} from './UserContext.jsx'
+import Counters from './usereducer.jsx'
+import FocusInput from './components/FocusInput.jsx'
+import Timer from './components/Timer.jsx'
 const ValidPassword =() => <h1>Valid Password</h1>
 const InvalidPassword =() => <h1>Invalid Password</h1>
 
@@ -60,7 +63,9 @@ function App() {
   <ComponentsContext.Provider value={name}>
     <ComponentA/>
   </ComponentsContext.Provider>
-  
+  <Counters />
+  <FocusInput />
+  <Timer />
 
 
 </>
